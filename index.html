@@ -10,9 +10,10 @@
         .embed-container {
             position: relative;
             width: 100%;
-            padding-top: 75%; /* Adjusted aspect ratio for better desktop visibility */
+            padding-top: 75%; /* 16:9 Aspect Ratio */
             margin: 0 auto;
-            max-width: 1600px; /* Limit max width for extra-large screens */
+            max-width: 1600px; /* Limit max width for larger screens */
+            overflow: hidden; /* Prevent overflow issues */
         }
 
         .embed-container iframe {
@@ -24,16 +25,23 @@
             border: none;
         }
 
-        /* Mobile Optimization */
+        /* Mobile Optimization: Fix iframe scrolling */
         @media (max-width: 768px) {
             .embed-container {
-                padding-top: 100%; /* Taller aspect ratio for better viewing */
-                height: calc(100vh - 100px); /* Use available vertical space */
+                height: 80vh; /* Use most of the screen height */
+                padding-top: 0; /* Override aspect ratio for mobile */
             }
 
             .embed-container iframe {
+                position: relative;
                 height: 100%;
-                position: static; /* Allow iframe scrolling if content overflows */
+                width: 100%;
+                pointer-events: none; /* Allow touch scrolling over iframe */
+            }
+
+            /* Enable iframe interaction when user taps */
+            .embed-container iframe.active {
+                pointer-events: auto;
             }
         }
 
@@ -50,8 +58,9 @@
             margin: 0 auto;
         }
 
+        /* Updated header and footer colors to green */
         header {
-            background-color: #2c3e50;
+            background-color: #27ae60; /* Green */
             color: #ecf0f1;
             text-align: center;
             padding: 20px 0;
@@ -63,7 +72,7 @@
         }
 
         footer {
-            background-color: #2c3e50;
+            background-color: #27ae60; /* Green */
             color: #ecf0f1;
             text-align: center;
             padding: 10px 0;
@@ -83,7 +92,7 @@
     <!-- Main Content Section -->
     <main>
         <div class="container">
-            <div class="embed-container">
+            <div class="embed-container" id="iframe-container">
                 <!-- Responsive iframe -->
                 <iframe 
                     src="https://lookerstudio.google.com/embed/reporting/9fff0290-d41f-49e9-bd65-1ac740745502/page/p_5290sglznd" 
@@ -104,6 +113,20 @@
             <p>&copy; 2024 Commander Statistics Report</p>
         </div>
     </footer>
+
+    <script>
+        // Enable iframe interaction on tap for mobile devices
+        const iframe = document.querySelector('.embed-container iframe');
+        const container = document.getElementById('iframe-container');
+
+        container.addEventListener('touchstart', () => {
+            iframe.classList.add('active');
+        });
+
+        container.addEventListener('touchend', () => {
+            iframe.classList.remove('active');
+        });
+    </script>
 
 </body>
 </html>
