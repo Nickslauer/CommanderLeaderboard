@@ -16,7 +16,7 @@ body {
 
 /* Container */
 .container {
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     padding: 20px;
 }
@@ -24,14 +24,14 @@ body {
 /* Header */
 header {
     background-color: #4CAF50;
-    padding: 20px 0;
+    padding: 40px 0;
     color: white;
     text-align: center;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-    font-size: 2.5em;
+    font-size: 3em;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -40,25 +40,26 @@ header h1 {
 .embed-container {
     width: 100%;
     height: 80vh; /* Use most of the viewport height */
-    margin: 20px auto;
+    margin: 40px auto;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: auto; /* Allow scrolling within iframe */
+    overflow: hidden;
 }
 
 .embed-container iframe {
     width: 100%;
     height: 100%;
     border: none;
-    display: block; /* Remove any extra space below iframe */
+    display: block; /* Remove extra spacing */
 }
 
 /* Footer */
 footer {
     background-color: #333;
     color: white;
-    padding: 10px 0;
+    padding: 20px 0;
+    margin-top: 40px;
     font-size: 0.9em;
 }
 
@@ -66,14 +67,17 @@ footer p {
     margin: 0;
 }
 
-/* Mobile-Specific Optimization */
+/* Disable Mobile-Specific Adjustments */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2em;
+    body {
+        overflow: hidden; /* Prevent mobile scrolling */
     }
 
     .embed-container {
-        height: 70vh; /* Adjust height for smaller screens */
-        overflow: scroll; /* Enable smooth scrolling */
+        display: none; /* Hide the embed on mobile completely */
+    }
+
+    header h1 {
+        font-size: 2.5em; /* Keep the header readable */
     }
 }
