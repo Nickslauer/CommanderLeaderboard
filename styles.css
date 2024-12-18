@@ -77,3 +77,12 @@ footer p {
         overflow: scroll; /* Enable smooth scrolling */
     }
 }
+
+/* Additional Scaling for Mobile Iframe Content */
+@media (max-width: 768px) {
+    .embed-container iframe {
+        transform: scale(1.2); /* Slightly enlarge content */
+        transform-origin: top left;
+        overflow-x: scroll; /* Allow scroll if content exceeds width */
+    }
+}
