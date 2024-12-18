@@ -51,11 +51,17 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     animation: slideUp 1s ease-out;
+
+    /* Ensure iframe scales correctly */
+    overflow: hidden;
 }
 
-/* Embed iframe */
-iframe {
+.embed-container iframe {
     border-radius: 10px;
+    width: 100%;
+    height: 70vh; /* Ensures it scales well on desktop */
+    transform-origin: top left;
+    transform: scale(1);
 }
 
 /* Footer */
@@ -81,8 +87,14 @@ footer p {
         width: 90%;
     }
 
-    iframe {
-        height: 600px;
+    .embed-container {
+        padding: 10px;
+    }
+
+    .embed-container iframe {
+        height: 90vh; /* Ensures iframe uses available space */
+        transform: scale(1.3); /* Scale up the content */
+        transform-origin: top left; /* Keep content aligned */
     }
 }
 
