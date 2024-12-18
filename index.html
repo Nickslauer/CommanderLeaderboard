@@ -10,10 +10,10 @@
         .embed-container {
             position: relative;
             width: 100%;
-            padding-top: 75%; /* 16:9 Aspect Ratio */
+            height: 0;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
             margin: 0 auto;
-            max-width: 1600px; /* Limit max width for larger screens */
-            overflow: hidden; /* Prevent overflow issues */
+            max-width: 1600px; /* Limit max width for desktop */
         }
 
         .embed-container iframe {
@@ -25,23 +25,18 @@
             border: none;
         }
 
-        /* Mobile Optimization: Fix iframe scrolling */
+        /* Mobile-Specific Optimization */
         @media (max-width: 768px) {
             .embed-container {
-                height: 80vh; /* Use most of the screen height */
-                padding-top: 0; /* Override aspect ratio for mobile */
+                padding-top: 0;
+                height: 80vh; /* Use a height proportional to the screen */
+                overflow-y: scroll; /* Allow iframe content to scroll */
+                -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
             }
 
             .embed-container iframe {
-                position: relative;
+                position: static; /* Static positioning for touch support */
                 height: 100%;
-                width: 100%;
-                pointer-events: none; /* Allow touch scrolling over iframe */
-            }
-
-            /* Enable iframe interaction when user taps */
-            .embed-container iframe.active {
-                pointer-events: auto;
             }
         }
 
@@ -92,7 +87,7 @@
     <!-- Main Content Section -->
     <main>
         <div class="container">
-            <div class="embed-container" id="iframe-container">
+            <div class="embed-container">
                 <!-- Responsive iframe -->
                 <iframe 
                     src="https://lookerstudio.google.com/embed/reporting/9fff0290-d41f-49e9-bd65-1ac740745502/page/p_5290sglznd" 
@@ -113,20 +108,6 @@
             <p>&copy; 2024 Commander Statistics Report</p>
         </div>
     </footer>
-
-    <script>
-        // Enable iframe interaction on tap for mobile devices
-        const iframe = document.querySelector('.embed-container iframe');
-        const container = document.getElementById('iframe-container');
-
-        container.addEventListener('touchstart', () => {
-            iframe.classList.add('active');
-        });
-
-        container.addEventListener('touchend', () => {
-            iframe.classList.remove('active');
-        });
-    </script>
 
 </body>
 </html>
