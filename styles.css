@@ -1,47 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commander Statistics</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <!-- Header Section -->
-    <header>
-        <div class="container">
-            <h1>Commander Statistics</h1>
-        </div>
-    </header>
+/* Background and Font Settings */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    text-align: center;
+}
 
-    <!-- Fireballs -->
-    <div class="fireball" style="--position: 0.1; --delay: 0; --direction: 1;"></div>
-    <div class="fireball" style="--position: 0.3; --delay: 1; --direction: -1;"></div>
-    <div class="fireball" style="--position: 0.5; --delay: 2; --direction: 1;"></div>
-    <div class="fireball" style="--position: 0.7; --delay: 3; --direction: -1;"></div>
-    <div class="fireball" style="--position: 0.9; --delay: 4; --direction: 1;"></div>
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-    <!-- Main Content Section -->
-    <main>
-        <div class="container">
-            <div class="embed-container">
-                <iframe 
-                    src="https://lookerstudio.google.com/embed/reporting/304ab44e-2b50-48b2-9df8-529006804ab7/page/p_348ch6fynd" 
-                    frameborder="0" 
-                    allowfullscreen 
-                    sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-                </iframe>
-            </div>
-        </div>
-    </main>
+/* Embed Container */
+.embed-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    animation: slideUp 1s ease-out;
+}
 
-    <!-- Footer Section -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Power BI Embedded Report</p>
-        </div>
-    </footer>
+/* Embed iframe */
+iframe {
+    width: 100%; /* Full width of the container */
+    height: 80vh; /* Use 80% of the viewport height */
+    min-height: 600px; /* Minimum height for desktop */
+    border-radius: 10px;
+}
 
-</body>
-</html>
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    iframe {
+        height: 500px; /* Smaller height for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    iframe {
+        height: 400px; /* Smaller height for phones */
+    }
+}
