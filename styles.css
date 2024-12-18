@@ -131,9 +131,3 @@ footer p {
     animation-delay: calc(var(--delay) * -1s);
     left: calc(var(--position) * 100vw);
 }
-@media (max-width: 768px) {
-    .fireball {
-        width: 15px;
-        height: 15px;
-    }
-}
