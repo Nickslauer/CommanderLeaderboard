@@ -17,6 +17,7 @@ body {
 /* Container */
 .container {
     width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -38,27 +39,30 @@ header h1 {
 
 /* Embed Container */
 .embed-container {
+    position: relative;
     width: 100%;
-    height: 80vh; /* Use most of the viewport height */
-    margin: 20px auto;
+    height: 80vh; /* Use most of the viewport height for desktop */
+    margin: 30px auto;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: auto; /* Allow scrolling within iframe */
+    overflow: hidden;
 }
 
 .embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     border: none;
-    display: block; /* Remove any extra space below iframe */
 }
 
 /* Footer */
 footer {
     background-color: #333;
     color: white;
-    padding: 10px 0;
+    padding: 15px 0;
     font-size: 0.9em;
 }
 
@@ -73,16 +77,19 @@ footer p {
     }
 
     .embed-container {
-        height: 70vh; /* Adjust height for smaller screens */
-        overflow: scroll; /* Enable smooth scrolling */
+        height: 100vh; /* Full-screen height for better use of space */
+        margin: 10px 0; /* Remove extra margin for mobile */
     }
-}
 
-/* Additional Scaling for Mobile Iframe Content */
-@media (max-width: 768px) {
     .embed-container iframe {
-        transform: scale(1.2); /* Slightly enlarge content */
+        width: 100%;
+        height: 100%;
+        transform: scale(1.5); /* Scale up iframe content */
         transform-origin: top left;
-        overflow-x: scroll; /* Allow scroll if content exceeds width */
+    }
+
+    footer {
+        font-size: 0.8em;
+        padding: 10px 0;
     }
 }
