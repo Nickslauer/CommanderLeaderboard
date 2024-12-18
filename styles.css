@@ -56,6 +56,8 @@ main {
 /* Embed iframe */
 iframe {
     border-radius: 10px;
+    width: 100%; /* Ensure full width */
+    height: 800px; /* Default height */
 }
 
 /* Footer */
@@ -82,7 +84,8 @@ footer p {
     }
 
     iframe {
-        height: 600px;
+        height: 400px; /* Reduce height for mobile */
+        width: 100%;   /* Ensure it spans the full width */
     }
 }
 
