@@ -39,12 +39,12 @@ header h1 {
 /* Embed Container */
 .embed-container {
     width: 100%;
-    height: 80vh; /* Use most of the viewport height */
+    height: 90vh; /* Slightly increase the height for more space */
     margin: 20px auto;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: auto; /* Allow scrolling within iframe */
+    overflow: hidden; /* Prevent any overflow */
 }
 
 .embed-container iframe {
@@ -73,16 +73,13 @@ footer p {
     }
 
     .embed-container {
-        height: 70vh; /* Adjust height for smaller screens */
-        overflow: scroll; /* Enable smooth scrolling */
+        height: 85vh; /* Adjust height for smaller screens */
     }
-}
 
-/* Additional Scaling for Mobile Iframe Content */
-@media (max-width: 768px) {
     .embed-container iframe {
-        transform: scale(1.2); /* Slightly enlarge content */
-        transform-origin: top left;
-        overflow-x: scroll; /* Allow scroll if content exceeds width */
+        width: 100vw; /* Full viewport width for mobile */
+        height: auto; /* Maintain aspect ratio */
+        transform: none; /* Ensure no additional scaling */
+        transform-origin: center; /* Center the content */
     }
 }
